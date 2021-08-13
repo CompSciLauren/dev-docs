@@ -1,2 +1,3 @@
-# dev-docs
-My personal documentation of common or cool development things.
+# Dev Docs
+
+> My personal documentation of common or cool development things.
