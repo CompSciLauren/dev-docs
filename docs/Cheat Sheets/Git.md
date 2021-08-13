@@ -1,8 +1,8 @@
 # Git
 
-## Table of Contents
+> Git commands and tidbits of info I have found useful.
 
-TODO
+Tip: Always make a backup branch if you are unsure of what you're doing.
 
 ## First Time Setup Config
 
@@ -25,25 +25,51 @@ Can be easy to forget, especially if new to this. Just think, "merge name-of-inc
 
 `git merge incoming-branch` # while on current branch
 
+### Replay your changes on top of latest from main branch
+
+`git pull --rebase`
+
+### Edit a non-pushed commit
+
+1. If doing more than just fixing a commit message, make whatever code changes needed.
+1. `git commit --amend`
+
+### Remove most recent pushed commit(s) from history
+
+Works for removing any number of commits as long as they are all the most recent ones or single most recent one.
+
+1. `git reset [SHA]` where the SHA is the most recent commit in the history that you want to keep (and will remove anything in the future from this point). This will unstage the changes but now they are in the working directory.
+1. `git reset --hard` this removes the working directory changes. Now it's as if you are on whatever SHA you reset to, and have not made any changes since then.
+1. `git push -f` erase the future commits that were removed and update remote repo.
+
 ## Other Commands
 
 ### Squash commits periodically
 
-1. git log // view history of commits (count these correctly for the next step)
-1. git rebase -i HEAD~[# of commits]
+#### One Way of Doing It
+
+1. `git log` // view history of commits (count these correctly for the next step)
+1. `git rebase -i HEAD~[# of commits]`
 1. Change top commit from Pick to e
 1. Change rest from Pick to f
 1. First commit will have summary of project as description when updated
 1. Press y, hit enter, to save changes locally
-1. git commit --amend // change commit message
+1. `git commit --amend` // change commit message
 1. Exit editor
-1. git rebase --continue
-1. git push origin SANDS-title --force
+1. `git rebase --continue`
+1. `git push origin branch-name --force`
 
 Tip: To get multi-line cursor, do CTRL+ALT+arrow keys
 
 Tip: To just replace pick with squash, do:
-`:%s/foo/bar/g`
+`:%s/pick/s/g`
+
+#### Another Way of Doing It
+
+1. Go to commits history (on GitHub or from terminal)
+1. Copy the sha of the most recent commit that you want to actually save and not have it be erased. “This is the commit that I want to keep, everything ahead of it I want to delete.” This is likely the sha of the commit that you branched off from (it existed from the master branch and you branched off of it).
+1. Go to your feature branch and type `git rebase -i [SHA]`
+1. After rebase, do `git push -f`. Now you have 1 commit for this branch.
 
 ### Stage all deleted files
 
