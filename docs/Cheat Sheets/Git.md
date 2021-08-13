@@ -1,1 +1,66 @@
 # Git
+
+## Table of Contents
+
+TODO
+
+## First Time Setup Config
+
+Setup name and email guide:
+https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
+
+## Most Common Commands
+
+### Change branch name
+
+To change the local/remote name of a branch:
+
+1. `git branch -m new-name` # rename local branch, while on that branch
+2. `git push origin :old-name new-name` # delete old-name remote branch, push new-name local branch
+3. `git push origin -u new-name` # switch to new branch, reset upstream branch for new-name local branch
+
+### Merge one branch into another
+
+Can be easy to forget, especially if new to this. Just think, "merge name-of-incoming-branch INTO current branch".
+
+`git merge incoming-branch` # while on current branch
+
+## Other Commands
+
+### Squash commits periodically
+
+1. git log // view history of commits (count these correctly for the next step)
+1. git rebase -i HEAD~[# of commits]
+1. Change top commit from Pick to e
+1. Change rest from Pick to f
+1. First commit will have summary of project as description when updated
+1. Press y, hit enter, to save changes locally
+1. git commit --amend // change commit message
+1. Exit editor
+1. git rebase --continue
+1. git push origin SANDS-title --force
+
+Tip: To get multi-line cursor, do CTRL+ALT+arrow keys
+
+Tip: To just replace pick with squash, do:
+`:%s/foo/bar/g`
+
+### Stage all deleted files
+
+Add all of the already-deleted files to staging.
+
+`git status -s | grep -E '^ D' | cut -d ' ' -f3 | xargs git add --all`
+
+## RGB Colors in Git Bash
+
+- Black 0;30 Dark Gray 1;30
+- Blue 0;34 Light Blue 1;34
+- Green 0;32 Light Green 1;32
+- Cyan 0;36 Light Cyan 1;36
+- Red 0;31 Light Red 1;31
+- Purple 0;35 Light Purple 1;35
+- Brown 0;33 Yellow 1;33
+- Light Gray 0;37 White 1;37
+
+Example of this being used can be found on my awesome-git-hooks repo:
+CompSciLauren/awesome-git-hooks
