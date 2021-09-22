@@ -13,11 +13,18 @@ https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
 
 ### Change branch name
 
+#### One method
+
 To change the local/remote name of a branch:
 
 1. `git branch -m new-name` # rename local branch, while on that branch
 2. `git push origin :old-name new-name` # delete old-name remote branch, push new-name local branch
 3. `git push origin -u new-name` # switch to new branch, reset upstream branch for new-name local branch
+
+#### Another method
+
+1. While on branch to be renamed, `git checkout -b new-branch-name`
+2. Re-push it with `git push -u origin new-branch-name`
 
 ### Merge one branch into another
 
@@ -43,6 +50,12 @@ Works for removing any number of commits as long as they are all the most recent
 1. `git push -f` erase the future commits that were removed and update remote repo.
 
 ## Other Commands
+
+### Delete a branch
+
+`git branch -D branch-name` - delete locally
+
+`git push origin:branch-name` - delete on remote
 
 ### Squash commits periodically
 
