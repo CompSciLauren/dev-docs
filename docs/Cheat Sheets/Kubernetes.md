@@ -6,7 +6,11 @@ List of handy commands.
 
 `kubectl get pods` - get list of pods
 
+`kubectl -n name_of_namespace get pods` - get list of pods in specific namespace (try this if your pod doesn't show up with `kubectl get pods`)
+
 `kubectl logs -f pod_name` - get logs for a pod
+
+`kubectl -n name_of_namespace describe pod pod_name` - description for a pod (like another form of logs to look at)
 
 `kubectl -n namespace rollout restart deployment/name.pod_name` - restart a pod
 
@@ -24,7 +28,9 @@ Note: Like in above example, `--context name-of-context` is the key part to use 
 
 > With this method, don't forget to switch back to local context to make sure that you aren't accidentally messing with a shared context unintentionally.
 
-`aws eks --region region-name update-kubeconfig --name last-part-of-name-of-context --alias name-of-context --role-arn role-arn-here`
+Update your AWS config to point to a specific role:
+
+`aws eks --region region-name update-kubeconfig --name last-part-of-name-of-context --alias name-of-context --role-arn specific-role-here`
 
 `kubectl config set-context name-of-context --namespace=name_of_namespace`
 
