@@ -30,8 +30,8 @@ Note: Like in above example, `--context name-of-context` is the key part to use 
 
 ## Elasticsearch
 
-`bundle exec name_of_api:transaction_search_populate[01/01/1970,01/10/2030]` - populate an empty ES index
+`bundle exec rake name_of_api:transaction_search_populate[01/01/1970,01/10/2030]` - populate an empty ES index
 
-`bundle exec name_of_api:transaction_search_update[01/01/1970,01/10/2030]` - update an existing ES index
+`bundle exec rake name_of_api:transaction_search_update[01/01/1970,01/10/2030]` - update an existing ES index
 
 Note: Probably doesn't technically matter if populate command is used in place of update command, since ES knows when to create vs. update a document.
