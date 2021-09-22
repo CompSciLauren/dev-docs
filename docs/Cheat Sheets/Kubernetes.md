@@ -41,3 +41,17 @@ Update your AWS config to point to a specific role:
 `bundle exec rake name_of_api:transaction_search_update[01/01/1970,01/10/2030]` - update an existing ES index
 
 Note: Probably doesn't technically matter if populate command is used in place of update command, since ES knows when to create vs. update a document.
+
+## Getting a shell on a pod
+
+Find your rails pods
+`kubectl --context name-of-context get pods | grep -i pod_name`
+
+Get a shell on the pod
+`kubectl --context name-of-context exec -it full-pod-name -- bash`
+
+Can now run a command on the shell. For example could do a rake task:
+`bundle exec rake name_of_api:transaction_search_update[01/01/1970,01/10/2030]` - update an existing ES index
+
+Command to exit
+`exit`
