@@ -55,3 +55,16 @@ Can now run a command on the shell. For example could do a rake task:
 
 Command to exit
 `exit`
+
+## Oddly Specific Uncommon Commands
+
+Just a place to put any random commands that were useful at some point but not usually needed.
+
+Count how many records are in a db view using ActiveRecord:
+
+```
+kubectl -n name-of-namespace exec -it pod_name -- bash
+bundle console
+require_relative 'config/environment'
+NameOfApi::DbViewName.count()
+```
