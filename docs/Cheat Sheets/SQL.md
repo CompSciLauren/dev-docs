@@ -17,3 +17,17 @@ INSERT INTO table_name
 VALUES
 (value1,value2,...);
 ```
+
+## Altering a Table
+
+### Drop Column Example
+
+```
+ALTER TABLE table_name
+DROP COLUMN column_name;
+```
+
+### Add Column Example
+
+ALTER TABLE Customers
+ADD Email varchar(255);
