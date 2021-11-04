@@ -29,5 +29,7 @@ DROP COLUMN column_name;
 
 ### Add Column Example
 
+```
 ALTER TABLE Customers
 ADD Email varchar(255);
+```
