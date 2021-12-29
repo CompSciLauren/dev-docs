@@ -56,6 +56,10 @@ Can now run a command on the shell. For example could do a rake task:
 Command to exit
 `exit`
 
+## Navigate to folders inside a pod
+
+How to.
+
 ## Oddly Specific Uncommon Commands
 
 Just a place to put any random commands that were useful at some point but not usually needed.
