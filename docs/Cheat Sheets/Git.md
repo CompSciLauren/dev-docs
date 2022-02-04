@@ -11,6 +11,10 @@ https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
 
 ## Most Common Commands
 
+### Update remote branch list and remove dead branches
+
+`git remote update origin --prune`
+
 ### Change branch name
 
 #### One method
