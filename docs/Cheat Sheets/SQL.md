@@ -2,6 +2,18 @@
 
 ## Common Basic Commands
 
+### SHOW ERRORS Example
+
+``` SQL
+SHOW ERRORS TRIGGER trigger_name;
+```
+
+### Get Number of Instances
+
+```
+select count(*), column_of_interest from table_name GROUP BY column_of_interest HAVING COUNT(*) > 1;
+```
+
 ### UPDATE Example
 
 ```
@@ -18,6 +30,17 @@ VALUES
 (value1,value2,...);
 ```
 
+### CREATE Example
+
+CREATE TABLE table_name (
+    column1 datatype,
+    column2 datatype,
+    column3 DATE,
+    column4 NUMBER(10,0),
+    column5 VARCHAR(255),
+   ....
+);
+
 ## Altering a Table
 
 ### Drop Column Example
@@ -33,3 +56,22 @@ DROP COLUMN column_name;
 ALTER TABLE Customers
 ADD Email varchar(255);
 ```
+
+### Rename Column Example
+
+```
+ALTER TABLE Customers
+RENAME COLUMN old_name TO new_name;
+```
+
+### DROP Table Example
+
+```
+DROP TABLE table_name;
+```
+
+## Altering Data
+
+### DELETE a row
+```
+DELETE FROM table_name WHERE condition;
