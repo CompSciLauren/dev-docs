@@ -41,6 +41,17 @@ CREATE TABLE table_name (
    ....
 );
 
+GRANT SELECT ON "APP"."NAME_OF_VIEW" TO "USER";
+
+### CREATE view with new data along with all data from a table
+
+CREATE OR REPLACE FORCE EDITIONABLE VIEW "USER"."NAME_OF_VIEW" ("SPECIAL_COLUMN", "COLUMN_FROM_OTHER_TABLE", "ANOTHER_COLUMN_FROM_OTHER_TABLE") AS 
+  select
+      'special ' || t.special_column AS SPECIAL_COLUMN, -- put 'special ' in front of table value
+      t.*
+    from
+      base_table_name t;
+
 ## Altering a Table
 
 ### Drop Column Example
