@@ -2,6 +2,28 @@
 
 Helm makes it real easy to play around with stuff in kubernetes.
 
+## Resources
+
+helm link
+helm documentation link
+
+## Tips for testing Helm template changes in projects
+
+Using configmap-nginx for project, an example.
+
+Prior to making changes to a template, should be able to:
+  * Spin up the k8s pods and have them all running successfully.
+  * Do `helm ls -n project` to see the deployed chart for the project
+  * Run `helm lint helm -n project` (while in top-level of repo)
+  * Run `helm show values helm -n project` (while in top-level of repo)
+  * Able to get sensible results on the website / rails pod from:
+    * /config
+    * /feature-flags/[domain.com].json
+    * /styles
+    * /logo
+
+Make changes to the template. Then do the same commands from above and confirm everything still runs successfully and appears correct.
+
 ## Tips for messing with Helm to get more experience with it
 
 If you want to play around with helm to get a better feeling for it,
@@ -31,7 +53,7 @@ total 0
 drwxr-xr-x   3 Lauren  FOLDER\Domain Users    96 Sep 15 13:24 .
 drwxr-xr-x@ 57 Lauren  FOLDER\Domain Users  1824 Sep 15 13:23 ..
 drwxr-xr-x   7 Lauren  FOLDER\Domain Users   224 Sep 15 13:24 testy-mctestface
- 
+
 ~/workspace/test/helm-test Lauren$ ll testy-mctestface/
 total 24
 drwxr-xr-x   7 Lauren  FOLDER\Domain Users   224 Sep 15 13:24 .
